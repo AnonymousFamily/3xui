@@ -21,6 +21,8 @@
 
 Built as an enhanced fork of the original X-UI project, 3X-UI adds broader protocol support, improved stability, per-client traffic accounting, and many quality-of-life features.
 
+> **Unofficial modified distribution.** This fork is maintained and published by the owner of this repository. It is based on [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui), whose upstream authorship and copyright notices are retained in the source. This fork was modified on 2026-10-18 to remove sponsor placements from the panel UI. It is not affiliated with or endorsed by the upstream project. Distributed under GPL-3.0; see [LICENSE](./LICENSE).
+
 > [!IMPORTANT]
 > This project is intended for personal use only. Please do not use it for illegal purposes or in a production environment.
 

@@ -14,14 +14,14 @@
   <a href="https://github.com/AnonymousFamily/3xui/releases/latest"><img src="https://img.shields.io/github/downloads/AnonymousFamily/3xui/total.svg" alt="Downloads"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
   <a href="https://pkg.go.dev/github.com/mhsanaei/3x-ui/v3"><img src="https://pkg.go.dev/badge/github.com/mhsanaei/3x-ui/v3.svg" alt="Go Reference"></a>
-  <a href="https://docs.sanaei.dev"><img src="https://img.shields.io/badge/docs-docs.sanaei.dev-22d3ee" alt="Documentation"></a>
+  <a href="https://github.com/AnonymousFamily/3xui/tree/main/docs/content/docs/zh"><img src="https://img.shields.io/badge/docs-%E6%9C%AC%E4%BB%93%E5%BA%93%E6%96%87%E6%A1%A3-22d3ee" alt="Documentation"></a>
 </p>
 
 **3X-UI** 是一个先进的开源 Web 控制面板，用于管理 [Xray-core](https://github.com/XTLS/Xray-core) 服务器。它提供简洁、多语言的界面，用于部署、配置和监控各种代理与 VPN 协议——从单台 VPS 到多节点部署。
 
 3X-UI 作为原始 X-UI 项目的增强分支（fork），增加了更广泛的协议支持、更好的稳定性、按客户端的流量统计以及许多提升使用体验的功能。
 
-> **非官方修改发行版。** 本分支由本仓库所有者维护和发布，基于 [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui)。源码中保留了上游作者信息及版权声明。本分支于 2026-10-18 修改，移除了面板界面的赞助商广告位。本分支与上游项目无隶属或背书关系，按 GPL-3.0 发布，详见 [LICENSE](./LICENSE)。
+> **非官方无广告社区版本。** 本分支由本仓库所有者维护和发布，基于 [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui)。已移除面板赞助商展示位和赞助商页面，以及 `/sponsors` 接口和服务端获取远程赞助商列表、Logo 的请求。面板更新器会检查本分支的 GitHub Releases。上述改动不修改 Xray-core 及常规代理/配置处理；为兼容性保留了 MTProto 协议的 `adTag` 选项，它与已移除的赞助商服务请求无关。源码保留上游作者信息及版权声明；本项目与上游无隶属或背书关系，按 GPL-3.0 发布，详见 [LICENSE](./LICENSE)。
 
 > [!IMPORTANT]
 > 本项目仅供个人使用。请勿将其用于非法目的，也请勿在生产环境中使用。
@@ -95,7 +95,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/AnonymousFamily/3xui/main/inst
 
 每个发布资源都会在其旁边附带一个 `.sha256` 校验和。`install.sh` 和更新程序都会据此校验压缩包，不匹配时中止。
 
-完整文档（安装、配置、运维以及完整的 API 参考）请访问 **[docs.sanaei.dev](https://docs.sanaei.dev/zh)**。
+本仓库的文档位于[中文指南](./docs/content/docs/zh)和[英文指南](./docs/content/docs/en)。本修改版的具体改动和发布方式以上方说明及本 README 为准。
 
 ### 无人值守安装
 
@@ -145,10 +145,10 @@ systemctl restart x-ui
 docker compose --profile postgres up -d
 ```
 
-该镜像捆绑了 Fail2ban（默认启用），用于强制执行按客户端的 **IP 限制**。Fail2ban 使用 `iptables` 封禁违规者，这需要 `NET_ADMIN` 权限。`docker-compose.yml` 已通过 `cap_add` 授予该权限；如果您改用 `docker run` 启动容器，请自行添加这些权限，否则封禁只会被记录而永远不会生效：
+仓库中的 Dockerfile 和 Compose 配置会从本分支源码构建。Fail2ban（默认启用）使用 `iptables` 强制执行按客户端的 **IP 限制**；Compose 配置已授予所需的 `NET_ADMIN` 和 `NET_RAW` 权限。本分支目前不发布预构建 Docker 镜像。
 
 ```bash
-docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
+docker compose up -d --build
 ```
 
 ## 环境变量
@@ -175,7 +175,7 @@ docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
 | `XUI_NODE_TOKEN_KEY_FILE` | JSON 密钥环（权限 `0600`），包含活动密钥 ID 及其 base64 编码的 32 字节密钥 | `/etc/x-ui/node_token_key.json` |
 | `XUI_NODE_TOKEN_KEY` | 单个 base64 编码的 32 字节密钥，仅在无法加载密钥文件时使用 | — |
 
-完整列表请参阅[环境变量参考](https://docs.sanaei.dev/zh/docs/reference/env-vars)。
+完整列表请参阅[本仓库的环境变量参考](./docs/content/docs/zh/reference/env-vars.mdx)。
 
 ## 支持的语言
 

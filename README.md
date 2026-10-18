@@ -14,14 +14,14 @@
   <a href="https://github.com/AnonymousFamily/3xui/releases/latest"><img src="https://img.shields.io/github/downloads/AnonymousFamily/3xui/total.svg" alt="Downloads"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
   <a href="https://pkg.go.dev/github.com/mhsanaei/3x-ui/v3"><img src="https://pkg.go.dev/badge/github.com/mhsanaei/3x-ui/v3.svg" alt="Go Reference"></a>
-  <a href="https://docs.sanaei.dev"><img src="https://img.shields.io/badge/docs-docs.sanaei.dev-22d3ee" alt="Documentation"></a>
+  <a href="https://github.com/AnonymousFamily/3xui/tree/main/docs/content/docs/en"><img src="https://img.shields.io/badge/docs-this%20repository-22d3ee" alt="Documentation"></a>
 </p>
 
 **3X-UI** is an advanced, open-source web control panel for managing [Xray-core](https://github.com/XTLS/Xray-core) servers. It provides a clean, multi-language interface for deploying, configuring, and monitoring a wide range of proxy and VPN protocols — from a single VPS to multi-node deployments.
 
 Built as an enhanced fork of the original X-UI project, 3X-UI adds broader protocol support, improved stability, per-client traffic accounting, and many quality-of-life features.
 
-> **Unofficial modified distribution.** This fork is maintained and published by the owner of this repository. It is based on [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui), whose upstream authorship and copyright notices are retained in the source. This fork was modified on 2026-10-18 to remove sponsor placements from the panel UI. It is not affiliated with or endorsed by the upstream project. Distributed under GPL-3.0; see [LICENSE](./LICENSE).
+> **Unofficial ad-free community build.** This fork is maintained and published by the owner of this repository. Based on [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui), it removes sponsor placements and the sponsor page from the panel, along with the `/sponsors` endpoints and backend requests for remote sponsor listings and logos. The panel updater checks this fork's GitHub Releases. Xray-core and normal proxy/config handling are unchanged by these removals. The MTProto `adTag` protocol option remains for compatibility and is separate from the removed sponsor service. Upstream authorship and copyright notices are retained; this project is not affiliated with or endorsed by the upstream project. Distributed under GPL-3.0; see [LICENSE](./LICENSE).
 
 > [!IMPORTANT]
 > This project is intended for personal use only. Please do not use it for illegal purposes or in a production environment.
@@ -95,7 +95,7 @@ During installation a random username, password, and access path are generated. 
 
 Every release asset is published with a `.sha256` sum next to it. Both `install.sh` and the updater verify the archive against that sum and abort on a mismatch.
 
-For full documentation — installation, configuration, operations, and the complete API reference — visit **[docs.sanaei.dev](https://docs.sanaei.dev)**.
+The repository's documentation is available in [English](./docs/content/docs/en) and [中文](./docs/content/docs/zh). The panel-specific modifications and release process are described above and in this README.
 
 ### Unattended install
 
@@ -145,10 +145,10 @@ The default `docker compose up -d` keeps using SQLite. To run with the bundled P
 docker compose --profile postgres up -d
 ```
 
-The image bundles Fail2ban (enabled by default) to enforce per-client **IP limits**. Fail2ban bans offenders with `iptables`, which requires the `NET_ADMIN` capability. `docker-compose.yml` already grants it via `cap_add`; if you start the container with `docker run` instead, add the capabilities yourself, otherwise bans are logged but never applied:
+The included Dockerfile and Compose file build this fork from source. Fail2ban (enabled by default) enforces per-client **IP limits** using `iptables`; the Compose file grants the required `NET_ADMIN` and `NET_RAW` capabilities. This fork does not currently publish a prebuilt Docker image.
 
 ```bash
-docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
+docker compose up -d --build
 ```
 
 ## Environment Variables
@@ -175,7 +175,7 @@ docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
 | `XUI_NODE_TOKEN_KEY_FILE` | JSON keyring (mode `0600`) holding the active key id and its base64 32-byte keys | `/etc/x-ui/node_token_key.json` |
 | `XUI_NODE_TOKEN_KEY` | A single base64 32-byte key, used only when the key file cannot be loaded | — |
 
-The complete list is on the [environment variables reference](https://docs.sanaei.dev/docs/reference/env-vars).
+See the [environment variables reference in this repository](./docs/content/docs/en/reference/env-vars.mdx).
 
 ## Supported Languages
 

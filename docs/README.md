@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://docs.sanaei.dev">
+  <a href="https://github.com/AnonymousFamily/3xui/tree/main/docs/content/docs">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="public/logo-dark.png" />
       <img src="public/logo-light.png" alt="3x-ui" width="180" />
@@ -7,33 +7,32 @@
   </a>
 </p>
 
-<h1 align="center">3x-ui Documentation</h1>
+<h1 align="center">3X-UI Community Documentation</h1>
 
 <p align="center">
-  The official documentation and product site for
-  <a href="https://github.com/MHSanaei/3x-ui"><b>3x-ui</b></a> —
-  an advanced web panel for managing Xray-core servers.
+  Documentation maintained with the ad-free community build at
+  <a href="https://github.com/AnonymousFamily/3xui"><b>AnonymousFamily/3xui</b></a>,
+  based on the open-source 3X-UI project.
 </p>
 
 <p align="center">
-  <a href="https://docs.sanaei.dev"><img src="https://img.shields.io/badge/docs-docs.sanaei.dev-22d3ee?style=flat-square" alt="Live site" /></a>
-  <a href="https://github.com/MHSanaei/3x-ui/actions/workflows/docs-ci.yml"><img src="https://github.com/MHSanaei/3x-ui/actions/workflows/docs-ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/AnonymousFamily/3xui/tree/main/docs/content/docs"><img src="https://img.shields.io/badge/docs-this%20repository-22d3ee?style=flat-square" alt="Repository docs" /></a>
+  <a href="https://github.com/AnonymousFamily/3xui/actions"><img src="https://img.shields.io/badge/CI-GitHub%20Actions-blue?style=flat-square" alt="CI" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square" alt="License: GPL-3.0" /></a>
   <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/Fumadocs-16-0ea5e9?style=flat-square" alt="Fumadocs 16" />
 </p>
 
 <p align="center">
-  <a href="https://docs.sanaei.dev"><b>Read the docs →</b></a>
+  <a href="https://github.com/AnonymousFamily/3xui/tree/main/docs/content/docs"><b>Browse the repository docs →</b></a>
 </p>
 
 ---
 
 ## Overview
 
-This directory (`docs/` in the [3x-ui](https://github.com/MHSanaei/3x-ui) monorepo) contains
-the source for [docs.sanaei.dev](https://docs.sanaei.dev) — a static-first documentation and
-marketing site built with [Fumadocs](https://fumadocs.dev) on Next.js. It has **no backend,
+This directory contains the documentation site source for the [AnonymousFamily/3xui](https://github.com/AnonymousFamily/3xui)
+community fork. The site is built with [Fumadocs](https://fumadocs.dev) on Next.js. It has **no backend,
 no database, and no auth**: every page is prerendered and every tool runs entirely in the
 browser.
 

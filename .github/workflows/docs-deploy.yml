@@ -45,7 +45,8 @@ jobs:
       - name: Build (static export)
         env:
           DEPLOY_TARGET: static
-          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_BASE_PATH: /3xui
+          NEXT_PUBLIC_SITE_URL: https://anonymousfamily.github.io/3xui
         run: pnpm build
       - name: Mirror default locale (en) to the site root
         # hideLocale makes most English links unprefixed (/, /docs/...), but the
